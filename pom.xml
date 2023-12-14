@@ -50,7 +50,7 @@
         <version>2.22.1</version>
         <configuration>
           <suiteXmlFiles>
-            <suiteXmlFile>testNG.xml</suiteXmlFile>
+            <suiteXmlFile>testNg.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>
