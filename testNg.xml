@@ -1,0 +1,8 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Portal UI Tests" parallel="tests" thread-count="1" verbose="10">
+    <test name="Selenium Tests with TestNG">
+        <classes>
+            <class name="com.pocabc.LoginTests"/>
+        </classes>
+    </test> <!-- Test -->
+</suite> <!-- Suite -->
