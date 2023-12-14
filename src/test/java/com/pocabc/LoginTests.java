@@ -17,9 +17,11 @@ public class LoginTests {
     @BeforeMethod
     public void setUp() {
 
-        driver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
+       // driver.manage().window().maximize();
         driver.get("https://opensource-demo.orangehrmlive.com/");
 
     }
