@@ -1,4 +1,4 @@
-name: Selenium Tests
+name: Selenium Tests Windows
 
 on:
   workflow_dispatch:
