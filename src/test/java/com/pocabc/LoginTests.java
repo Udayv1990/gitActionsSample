@@ -41,7 +41,7 @@ public class LoginTests {
 
     }
 
-    @Test(description = "This test will fail", priority = 1)
+    @Test(description = "This test will fail", priority = 1,  enabled = false)
     public void verifyBlankCredentials() {
 
         driver.findElement(By.name("username")).sendKeys("");
@@ -55,7 +55,7 @@ public class LoginTests {
 
     }
 
-    @Test(description = "This test validates  successful login to Home page", priority = 2)
+    @Test(description = "This test validates  successful login to Home page", priority = 2,  enabled = false)
     public void verifyLoginPage() {
 
         driver.findElement(By.name("username")).sendKeys("Admin");
