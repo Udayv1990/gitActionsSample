@@ -22,7 +22,7 @@ jobs:
         java-version: '11'
 
     - name: Build and Test
-      run: mvn clean test -DsuteName=${{ github.event.inputs.suiteName}}
+      run: mvn clean test -DsuteName=${{ github.event.inputs.suiteName}} 
 
     - name: Report Generation
       uses: actions/upload-artifact@v2
