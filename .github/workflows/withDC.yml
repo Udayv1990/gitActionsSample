@@ -29,3 +29,9 @@ jobs:
 
     - name: Tear down Docker Compose
       run: docker-compose down
+
+    - name: Report Generation
+      uses: actions/upload-artifact@v2
+      with:
+        name: testNgReport
+        path: ./target/**/*
