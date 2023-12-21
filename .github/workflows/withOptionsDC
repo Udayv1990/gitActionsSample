@@ -1,0 +1,40 @@
+name: Selenium Tests with Docker
+
+on:
+  workflow_dispatch:
+    inputs:
+      properties:
+        suiteName:
+          description: 'Select Suite Name'
+          required: true
+          default: 'testNg_withDc'
+          options: ['testNg_withDc', 'testNg_withDc1', 'testNg_withDc3']
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        distribution: 'adopt'
+        java-version: '11'
+
+    - name: Set up Docker Compose
+      run: docker-compose up -d
+
+    - name: Build and Test
+      run: mvn clean test -DsuiteName=${{ github.event.inputs.suiteName }}
+
+    - name: Tear down Docker Compose
+      run: docker-compose down
+
+    - name: Report Generation
+      uses: actions/upload-artifact@v2
+      with:
+        name: testNgReport
+        path: ./target/**/*
