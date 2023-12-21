@@ -1,4 +1,4 @@
-name: Selenium Tests with Docker
+name: Selenium Tests with Suite Options and Docker
 
 on:
   workflow_dispatch:
