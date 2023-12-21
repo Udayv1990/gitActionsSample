@@ -3,12 +3,12 @@ name: Selenium Tests with Suite Options and Docker
 on:
   workflow_dispatch:
     inputs:
-      properties:
-        suiteName:
-          description: 'Select Suite Name'
-          required: true
-          default: 'testNg_withDc'
-          options: ['testNg_withDc', 'testNg_withDc1', 'testNg_withDc3']
+      suiteName:
+        type: choice
+        description: 'Select Suite Name'
+        required: true
+        default: 'testNg_withDc'
+        options: ['testNg_withDc', 'testNg_withDc1', 'testNg_withDc3']
 
 jobs:
   build-and-test:
