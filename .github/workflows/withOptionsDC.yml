@@ -7,8 +7,8 @@ on:
         type: choice
         description: 'Select Suite Name'
         required: true
-        default: 'testNg_withDc'
-        options: ['testNg_withDc', 'testNg_withDc1', 'testNg_withDc3']
+        default: 'testNg_withDc.xml'
+        options: ['testNg_withDc.xml', 'testNg_withDc1.xml', 'testNg_withDc3.xml']
 
 jobs:
   build-and-test:
