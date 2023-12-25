@@ -11,6 +11,8 @@ on:
 jobs:
   job1:
     runs-on: ubuntu-latest
+    outputs:
+      variable_name: 'failure'
     steps:
       - name: Set output variable
         id: set_output
