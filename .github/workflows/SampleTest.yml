@@ -20,9 +20,9 @@ jobs:
       - name: Step2
         id: set-status
         run: |
-         job1_status=${{ steps.set-status.outputs.status }}
+         job1_status=${{ steps.set-status.outcome  }}
          echo "Job1 status: $job1_status"
-         echo "Job1 status: ${{ steps.set-status.outputs.status }}"
+         echo "Job1 status: ${{ steps.set-status.outcome}}"
         
   job2:
     needs: job1
