@@ -15,10 +15,10 @@ jobs:
       job1_status: ${{ steps.set-status.outputs.status }}
     steps:
       - name: Step1
+        id: set-status
         run: echo " This is Step 01"
         
       - name: Step2
-        id: set-status
         run: |
          job1_status=${{ steps.set-status.outcome  }}
          echo "Job1 status: $job1_status"
