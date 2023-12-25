@@ -12,7 +12,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      job1_status: 'failure'
+      job1_step1_status: 'failure'
     steps:
       - name: Step1
         id: set-status
@@ -20,10 +20,11 @@ jobs:
         
       - name: Step2
         run: |
-         echo "Before Job1 status: $job1_status"
-         job1_status=${{ steps.set-status.outcome  }}
-         echo "After Job1 status: $job1_status"
-         echo "Job1 status: ${{ steps.set-status.outcome}}"
+         echo "Before Job1 status: $job1_step1_status"
+         job1_status=${{steps.set-status.outcome}}
+         "job1_step1_status=$job1_status" >> $GITHUB_ENV
+         echo "Job1 status: $job1_status"
+         echo "After  Job1 status: $job1_step1_status"
         
   job2:
     needs: job1
@@ -34,5 +35,5 @@ jobs:
         
       - name: Get job1 status
         run: |
-          JOB1_STATUS=${{ needs.job1.outputs.job1_status }}
+          JOB1_STATUS=${{ needs.job1.outputs.job1_step1_status }}
           echo "Job1 status: $JOB1_STATUS"
