@@ -17,9 +17,11 @@ jobs:
       - name: Set output variable
         id: set_output
         run: |
-          echo "variable_name=variable_value" >> $GITHUB_ENV
+          echo "This is Job 1 Step1"
+          
       - name: Use output variable
         run: |
+          echo "variable_name==${{steps.set_output.outcome}}" >> $GITHUB_ENV
           echo "The value of variable_name is ${{ needs.job1.outputs.variable_name }}"
 
   job2:
