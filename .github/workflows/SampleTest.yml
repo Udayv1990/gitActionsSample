@@ -19,7 +19,10 @@ jobs:
         
       - name: Step2
         id: set-status
-        run: echo "::set-output name=status::success"
+        run: |
+         job1_status=${{ steps.set-status.outputs.status }}
+         echo "Job1 status: $job1_status"
+         echo "Job1 status: ${{ steps.set-status.outputs.status }}"
         
   job2:
     needs: job1
