@@ -12,7 +12,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      job1_status: ${{ steps.set-status.outputs.status }}
+      job1_status: 'failure'
     steps:
       - name: Step1
         id: set-status
@@ -20,8 +20,9 @@ jobs:
         
       - name: Step2
         run: |
+         echo "Before Job1 status: $job1_status"
          job1_status=${{ steps.set-status.outcome  }}
-         echo "Job1 status: $job1_status"
+         echo "After Job1 status: $job1_status"
          echo "Job1 status: ${{ steps.set-status.outcome}}"
         
   job2:
