@@ -1,0 +1,30 @@
+name: Sample Test Two
+on:
+  workflow_dispatch:
+    inputs:
+      suiteName:
+        type: choice
+        description: 'Select Suite Name'
+        required: false
+        default: 'testNg_withDc.xml'
+        options: ['testNg_withDc.xml', 'testNg_withDc1.xml', 'testNg_withDc3.xml']
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set output variable
+        id: set_output
+        run: |
+          echo "variable_name=variable_value" >> $GITHUB_ENV
+      - name: Use output variable
+        run: |
+          echo "The value of variable_name is ${{ needs.job1.outputs.variable_name }}"
+
+  job2:
+    runs-on: ubuntu-latest
+    needs: job1
+    steps:
+      - name: Use output variable
+        run: |
+          echo "The value of variable_name is ${{ needs.job1.outputs.variable_name }}"
+
