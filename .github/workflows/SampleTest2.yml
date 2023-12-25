@@ -12,7 +12,7 @@ jobs:
   job1:
     runs-on: ubuntu-latest
     outputs:
-      variable_name: 'failure'
+      variable_name: 'fail'
     steps:
       - name: Set output variable
         id: set_output
@@ -20,8 +20,9 @@ jobs:
           echo "This is Job 1 Step1"
           
       - name: Use output variable
+        id: set_output2
         run: |
-          echo "variable_name==${{steps.set_output.outcome}}" >> "$GITHUB_OUTPUT"
+          echo "variable_name=${{steps.set_output.outcome}}" >> "$GITHUB_OUTPUT"
           echo "The value of variable_name is ${{ needs.job1.outputs.variable_name }}"
 
   job2:
