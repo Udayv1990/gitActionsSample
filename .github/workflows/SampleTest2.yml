@@ -21,8 +21,7 @@ jobs:
           
       - name: Use output variable
         run: |
-          echo "variable_name==${{steps.set_output.outcome}}" >> $GITHUB_ENV
-          "variable_name==${{steps.set_output.outcome}}" >> $GITHUB_ENV
+          echo "variable_name==${{steps.set_output.outcome}}" >> "$GITHUB_OUTPUT"
           echo "The value of variable_name is ${{ needs.job1.outputs.variable_name }}"
 
   job2:
